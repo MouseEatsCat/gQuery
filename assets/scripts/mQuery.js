@@ -121,6 +121,20 @@ class mQueryNodeList {
 
 		return new mQueryNodeList(allItems);
 	}
+
+	/**
+	 * @param {string} className
+	 */
+	addClass(className) {
+		this.each((item) => { item.addClass(className) })
+	}
+
+	/**
+	 * @param {string} className
+	 */
+	removeClass(className) {
+		this.each((item) => { item.removeClass(className) })
+	}
 }
 
 /**
