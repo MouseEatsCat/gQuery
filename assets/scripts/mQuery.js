@@ -55,12 +55,29 @@ class mQueryNodeList {
 
 	/**
 	 * @param {string} event
+	 * @param {eventCallback|string} query Query or Callback
 	 * @param {eventCallback} callback
 	 * @returns self
 	 */
-	on(event, callback) {
+	on(event, query, callback) {
+		let callback_function = callback;
+
+		if (typeof query === 'function') {
+			callback_function = query;
+		}
+
 		this.items.forEach((item) => {
-			item.element.addEventListener(event, callback.bind(item));
+			const addEventListener = (item) => {
+				item.element.addEventListener(event, callback_function.bind(item));
+			};
+
+			if (typeof query !== 'function') {
+				const items = mQuery(query, item.element);
+				items.each(item => addEventListener(item));
+				return;
+			}
+
+			addEventListener(item);
 		});
 		return this;
 	}
