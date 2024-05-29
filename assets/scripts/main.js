@@ -5,7 +5,12 @@ const filters   = mQuery(".gallery-filter");
 const tiles     = mQuery(".tiles .tile");
 let lastClicked = null;
 
-function executeFilter(category) {
+/**
+ * Filter all tiles by category
+ * @param {string} category
+ * @returns {void}
+ */
+function filterTiles(category) {
 	if (category === '*') {
 		tiles.each(tile => {
 			tile.addClass('active');
@@ -26,7 +31,7 @@ function executeFilter(category) {
 }
 
 filters.on('click', function (e) {
-	executeFilter(this.data('filter'));
+	filterTiles(this.data('filter'));
 
 	// Do this on click
 	filters.each(function(filter) {

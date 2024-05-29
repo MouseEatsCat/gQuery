@@ -21,6 +21,7 @@ class mQueryElement {
 	/**
 	 * @param {string} dataAttr
 	 * @param {any} value
+	 * @returns {string}
 	 */
 	data(dataAttr, value) {
 		if (typeof value !== 'undefined') {
@@ -93,7 +94,9 @@ class mQueryNodeList {
  * @returns {mQueryNodeList}
  */
 function mQuery(query, context) {
+	// Use document as context by default
 	let root = document;
+
 	if (context) {
 		if (context instanceof HTMLElement) {
 			root = context;
