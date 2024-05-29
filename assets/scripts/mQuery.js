@@ -50,7 +50,12 @@ class mQueryNodeList {
 	items = [];
 
 	constructor(nodelist) {
-		this.items = Array.from(nodelist).map(node => new mQueryElement(node));
+		this.items = Array.from(nodelist).map(node => {
+			if (node instanceof mQueryElement) {
+				return node
+			}
+			return new mQueryElement(node)
+		});
 	}
 
 	/**
@@ -102,15 +107,33 @@ class mQueryNodeList {
 	last() {
 		return this.items[(this.items.length - 1)].element;
 	}
+
+	/**
+	 * @param {string} query
+	 * @returns {mQueryNodeList}
+	 */
+	find(query) {
+		const allItems = [];
+
+		this.items.forEach((item) => {
+			allItems.push(...mQuery(query, item.element).items);
+		});
+
+		return new mQueryNodeList(allItems);
+	}
 }
 
 /**
  * matQuery - it's like jQuery but for Mathieu
- * @param {string} query
+ * @param {string|mQueryElement} query
  * @param {HTMLElement|string} context
  * @returns {mQueryNodeList}
  */
 function mQuery(query, context) {
+	if (query instanceof mQueryElement) {
+		return new mQueryNodeList([query.element]);
+	}
+
 	// Use document as context by default
 	let root = document;
 
