@@ -1,0 +1,17 @@
+.gallery-filter {
+	display: inline-block;
+	padding: 5px 10px;
+	background: #CCC;
+	cursor: pointer;
+}
+
+.gallery-filter.active {
+	background: #999;
+}
+
+.tiles .tile {
+	display: none;
+}
+.tiles .tile.active {
+	display: block;
+}
