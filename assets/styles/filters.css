@@ -1,3 +1,11 @@
+body {
+	margin: 0;
+}
+
+main {
+	padding: 20px 40px;
+}
+
 .gallery-filter {
 	display: inline-block;
 	padding: 5px 10px;
@@ -9,9 +17,55 @@
 	background: #999;
 }
 
+.filters {
+	margin-bottom: 15px;
+	display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tiles {
+    display: grid;
+    grid-gap: 10px;
+    justify-content: start;
+    align-items: start;
+    grid-template-columns: repeat(3, minmax(100px, 200px));
+}
+
 .tiles .tile {
 	display: none;
+    flex-direction: column;
+	width: 200px;
+    height: 200px;
+    background: #eee;
+    text-align: center;
+    justify-content: center;
 }
 .tiles .tile.active {
-	display: block;
+	display: flex;
+}
+
+@media (max-width: 700px) {
+	.tiles {
+		grid-template-columns: repeat(3, minmax(150px, 150px));
+	}
+	.tiles .tile {
+		width: 150px;
+		height: 150px;
+	}
+}
+
+@media (max-width: 550px) {
+	.tiles {
+		grid-template-columns: repeat(2, minmax(150px, 150px));
+	}
+}
+
+@media (max-width: 400px) {
+	main {
+		padding: 10px;
+	}
+	.tiles {
+		grid-template-columns: 1fr;
+	}
 }
