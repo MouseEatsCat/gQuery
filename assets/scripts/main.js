@@ -44,3 +44,5 @@ filters.on('click', function (e) {
 	this.addClass('active');
 	lastClicked = this;
 });
+
+filterAll.click()
