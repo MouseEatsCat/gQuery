@@ -59,6 +59,23 @@ class mQueryNodeList {
 	}
 
 	/**
+	 * @returns {Iterator<mQueryElement>}
+	 */
+	[Symbol.iterator]() {
+		let index = -1;
+		return {
+			next: () => {
+				index++;
+				if (index < this.items.length) {
+					return {value: this.items[index], done: false};
+				}
+				return {done: true};
+			}
+		};
+	}
+
+	/**
+	 * Add an event handler to all elements
 	 * @param {string} event
 	 * @param {eventCallback|string} query Query or Callback
 	 * @param {eventCallback} callback
@@ -88,10 +105,19 @@ class mQueryNodeList {
 	}
 
 	/**
+	 * Iterate through all elements
 	 * @param {itemCallback} callback
 	 */
 	each(callback) {
 		this.items.forEach(item => callback.bind(item)(item));
+	}
+
+	/**
+	 * Iterate through all elements
+	 * @param {itemCallback} callback
+	 */
+	forEach(callback) {
+		this.each(callback)
 	}
 
 	/**
