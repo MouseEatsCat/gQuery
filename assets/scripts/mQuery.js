@@ -20,7 +20,7 @@ class mQueryElement {
 
 	/**
 	 * @param {string} dataAttr
-	 * @param {any} value
+	 * @param {?any} value
 	 * @returns {string}
 	 */
 	data(dataAttr, value) {
@@ -45,7 +45,28 @@ class mQueryElement {
 	}
 
 	/**
-	 * @param {string} html
+	 * @param {string} attribute
+	 * @param {?string} value
+	 * @returns {string|mQueryElement}
+	 */
+	attr(attribute, value) {
+		if (typeof value !== 'undefined') {
+			this.element.setAttribute(attribute, value);
+			return this;
+		}
+		return this.element.getAttribute(attribute);
+	}
+
+	/**
+	 * @param {?string} value
+	 * @returns {string|mQueryElement}
+	 */
+	val(value) {
+		return this.attr('value', value);
+	}
+
+	/**
+	 * @param {?string} html
 	 * @returns {string|mQueryElement}
 	 */
 	html(html) {
