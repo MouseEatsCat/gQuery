@@ -43,6 +43,53 @@ class mQueryElement {
 	removeClass(className) {
 		this.element.classList.remove(className);
 	}
+
+	/**
+	 * @param {string} html
+	 * @returns {string|mQueryElement}
+	 */
+	html(html) {
+		const oldHtml = this.element.innerHTML;
+
+		if (typeof html !== 'undefined') {
+			this.element.innerHTML = toString(html);
+			return this;
+		}
+
+		return oldHtml;
+	}
+
+	/**
+	 * @param {mQueryElement|string} html
+	 * @returns {mQueryElement}
+	 */
+	prepend(html) {
+		if (typeof html !== 'undefined') {
+			if (html instanceof mQueryElement) {
+				this.element.prepend(html.element);
+			} else {
+				this.element.innerHTML = toString(html) + this.element.innerHTML;
+			}
+		}
+
+		return this;
+	}
+
+	/**
+	 * @param {mQueryElement|string} html
+	 * @returns {mQueryElement}
+	 */
+	append(html) {
+		if (typeof html !== 'undefined') {
+			if (html instanceof mQueryElement) {
+				this.element.appendChild(html.element);
+			} else {
+				this.element.innerHTML += toString(html);
+			}
+		}
+
+		return this;
+	}
 }
 
 class mQueryNodeList {
