@@ -1,8 +1,8 @@
-import mQuery from "./mQuery.js";
+import $ from "../../dist/gQuery.min.js";
 
-const filterAll = mQuery(".gallery-filter[data-filter=\"*\"]").first();
-const filters   = mQuery(".gallery-filter");
-const tiles     = mQuery(".tiles .tile");
+const filterAll = $(".gallery-filter[data-filter=\"*\"]").first().element;
+const filters   = $(".gallery-filter");
+const tiles     = $(".tiles .tile");
 let lastClicked = null;
 
 /**

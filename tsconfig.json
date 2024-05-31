@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "declaration": true,
+    "allowJs": true,
+    "outDir": "./dist",
+    "lib": ["ES2016", "DOM"]
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.js"
+  ]
+}

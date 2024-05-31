@@ -1,0 +1,25 @@
+{
+  "name": "@micheldescoteaux/gquery",
+  "version": "1.0.6",
+  "type": "module",
+  "description": "like jQuery but for Mathieu Gévry",
+  "main": "./dist/gQuery.min.js",
+  "types": "./dist/gQuery",
+  "unpkg": "./dist/gQuery.min.js",
+  "scripts": {
+    "build": "tsc && npm run minify && npm run demo",
+    "minify": "terser dist/gQuery.js -o dist/gQuery.min.js -c -m --keep-classnames --keep-fnames --source-map \"url='dist/gQuery.min.js.map', includeSources\"",
+    "demo": "rm -rf ./docs/dist && cp -R ./dist ./docs/dist",
+    "prepare": "husky install"
+  },
+  "author": "descoteaux.michel@gmail.com",
+  "repository": {
+    "url": "https://github.com/MouseEatsCat/mat_test"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "terser": "^5.31.0",
+    "typescript": "^5.4.5"
+  }
+}
