@@ -70,6 +70,7 @@ The `gQueryElementList` object has the following methods available:
 | `find()`        | query: string                                                               | Find descendant elements of all queried elements(matching the query) |
 | `addClass()`    | className: string                                                           | Add class to all queried elements                                    |
 | `removeClass()` | className: string                                                           | Remove class from all queried elements                               |
+| `toggleClass()` | className: string                                                           | Toggle class from all queried elements                               |
 | `prepend()`     | html: gQueryElement \| HTMLElement \| string                                | Prepend element or HTML to all queried elements                      |
 | `append()`      | html: gQueryElement \| HTMLElement \| string                                | Append element or HTML to all queried elements                       |
 
@@ -81,6 +82,7 @@ The `gQueryElement` object has the following methods available:
 | `find()`        | query: string                                                               | Find descendant elements of element(matching the query) |
 | `addClass()`    | className: string                                                           | Add class to element                                    |
 | `removeClass()` | className: string                                                           | Remove class from element                               |
+| `toggleClass()` | className: string                                                           | Toggle class from element                               |
 | `prepend()`     | html: gQueryElement \| HTMLElement \| string                                | Prepend element or HTML to element                      |
 | `append()`      | html: gQueryElement \| HTMLElement \| string                                | Append element or HTML to element                       |
 | `data()`        | dataAttr: string<br>value?: any                                             | Get or set a data attribute                             |
