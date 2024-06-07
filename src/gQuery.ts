@@ -52,6 +52,10 @@ class gQueryElement {
 		this.element.classList.remove(className);
 	}
 
+	toggleClass(className: string) {
+		this.element.classList.toggle(className);
+	}
+
 	attr(attribute: string, value?: string): string | this {
 		if (typeof value !== 'undefined') {
 			this.element.setAttribute(attribute, value);
@@ -189,6 +193,12 @@ class gQueryElementList {
 
 	removeClass(className: string) {
 		this.each((item) => { item.removeClass(className) })
+	}
+
+	toggleClass(className: string) {
+		this.each((item) => {
+			item.toggleClass(className)
+		})
 	}
 
 	prepend(html: gQueryElement | HTMLElement | string): this {

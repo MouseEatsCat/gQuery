@@ -8,6 +8,7 @@ declare class gQueryElement {
     data(dataAttr: string, value?: any): string;
     addClass(className: string): void;
     removeClass(className: string): void;
+    toggleClass(className: string): void;
     attr(attribute: string, value?: string): string | this;
     val(value?: string): string | this;
     html(html?: string): string | this;
@@ -35,6 +36,7 @@ declare class gQueryElementList {
     find(query: string): gQueryElementList;
     addClass(className: string): void;
     removeClass(className: string): void;
+    toggleClass(className: string): void;
     prepend(html: gQueryElement | HTMLElement | string): this;
     append(html: gQueryElement | HTMLElement | string): this;
 }

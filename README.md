@@ -1,5 +1,18 @@
 # gevryQuery&trade;
-gQuery&trade; is like jQuery but for Mathieu Gévry
+
+<p align="center">
+  <img 
+    alt="gQuery.js Logo"
+	width="250"
+    src="https://i.imgur.com/Ej4lzaG.png"/>
+</p>
+
+[![npm version](https://badge.fury.io/js/@micheldescoteaux%2Fgquery.svg)](https://badge.fury.io/js/@micheldescoteaux%2Fgquery)
+![Download count all time](https://img.shields.io/npm/dt/@micheldescoteaux%2Fgquery.svg)
+![npm](https://img.shields.io/npm/dm/@micheldescoteaux%2Fgquery.svg)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@micheldescoteaux%2Fgquery.svg)
+
+Similar to jQuery but for Mathieu Gévry. Also known as goutQuery&trade;
 
 # Installation
 ## Option 1 - Download the file directly
@@ -35,6 +48,14 @@ The following returns a `gQueryElementList` object
 ```JS
 gQuery(".classname")
 ```
+## Examples
+Add a class to and element when clicked
+```javascript
+gQuery(".gallery-filter").on('click', function (e) {
+	this.addClass('clicked');
+});
+```
+
 # Reference
 ## gQueryElementList
 The `gQueryElementList` object has the following methods available:

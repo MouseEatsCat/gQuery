@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	font-family: sans-serif;
 }
 
 main {
@@ -8,13 +9,15 @@ main {
 
 .gallery-filter {
 	display: inline-block;
-	padding: 5px 10px;
+	padding: 5px 15px;
 	background: #CCC;
 	cursor: pointer;
+	user-select: none;
 }
 
 .gallery-filter.active {
-	background: #999;
+	background: #4048D3;
+	color: #FFF;
 }
 
 .filters {

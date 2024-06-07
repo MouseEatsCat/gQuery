@@ -35,6 +35,9 @@ var gQueryElement = /** @class */ (function () {
     gQueryElement.prototype.removeClass = function (className) {
         this.element.classList.remove(className);
     };
+    gQueryElement.prototype.toggleClass = function (className) {
+        this.element.classList.toggle(className);
+    };
     gQueryElement.prototype.attr = function (attribute, value) {
         if (typeof value !== 'undefined') {
             this.element.setAttribute(attribute, value);
@@ -158,6 +161,11 @@ var gQueryElementList = /** @class */ (function () {
     };
     gQueryElementList.prototype.removeClass = function (className) {
         this.each(function (item) { item.removeClass(className); });
+    };
+    gQueryElementList.prototype.toggleClass = function (className) {
+        this.each(function (item) {
+            item.toggleClass(className);
+        });
     };
     gQueryElementList.prototype.prepend = function (html) {
         if (typeof html !== 'undefined') {

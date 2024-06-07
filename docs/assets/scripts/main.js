@@ -1,4 +1,4 @@
-import $ from "../../dist/gQuery.min.js";
+import $ from "../../dist/gQuery.js";
 
 const filterAll = $(".gallery-filter[data-filter=\"*\"]").first().element;
 const filters   = $(".gallery-filter");
