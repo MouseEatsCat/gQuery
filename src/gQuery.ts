@@ -29,6 +29,12 @@ class gQueryElement {
 		return this;
 	}
 
+	trigger (event: string): this {
+		const eventObj = new CustomEvent(event);
+		this.element.dispatchEvent(eventObj);
+		return this;
+	}
+
 	find(query: string): gQueryElementList {
 		const allItems: gQueryElement[] = [];
 
@@ -151,6 +157,14 @@ class gQueryElementList {
 	on(event: string, query: EventCallback | string, callback?: EventCallback): this {
 		this.items.forEach((item) => {
 			item.on(event, query, callback);
+		});
+		return this;
+	}
+
+	trigger (event: string): this {
+		const eventObj = new CustomEvent(event);
+		this.items.forEach((item) => {
+			item.element.dispatchEvent(eventObj);
 		});
 		return this;
 	}
