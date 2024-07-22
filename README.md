@@ -1,4 +1,4 @@
-# gevryQuery&trade;
+# gQuery&trade;
 
 <p align="center">
   <img 
@@ -12,14 +12,14 @@
 ![npm](https://img.shields.io/npm/dm/@micheldescoteaux%2Fgquery.svg)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@micheldescoteaux%2Fgquery.svg)
 
-Similar to jQuery but for Mathieu Gévry. Also known as goutQuery&trade;
+Similar to jQuery but with less bulk. Also known as goutQuery&trade;
 
 # Installation
 ## Option 1 - Download the file directly
 
 Download the file
 ```bash
-curl -LJO https://raw.githubusercontent.com/MouseEatsCat/mat_test/main/dist/gQuery.min.js
+curl -LJO https://raw.githubusercontent.com/MouseEatsCat/gQuery/main/dist/gQuery.min.js
 ```
 
 And then include it using
@@ -56,6 +56,16 @@ gQuery(".gallery-filter").on('click', function (e) {
 });
 ```
 
+You can also provide an element as the second parameter to use it as the context
+```javascript
+const parent = gQuery('#parent');
+
+gQuery(".child-of-parent", parent).each(function (element) {
+  // element is a descendant of the parent element
+  // and has class: "child-of-parent"
+});
+```
+
 # Reference
 ## gQueryElementList
 The `gQueryElementList` object has the following methods available:
@@ -63,6 +73,7 @@ The `gQueryElementList` object has the following methods available:
 | Method          | Parameters                                                                  | Description                                                          |
 | --------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | `on()`          | event: string<br>query: EventCallback \| string<br>callback?: EventCallback | Add an event handler to all queried elements                         |
+| `trigger()`     | event: string                                                               | Trigger an event on all queried elements                             |
 | `each()`        | callback: ItemCallback                                                      | Run a callback for all queried elements                              |
 | `forEach()`     | callback: ItemCallback                                                      | alias of `.each()`                                                   |
 | `first()`       | void                                                                        | Get the first `gQueryElement` of all queried elements                |
@@ -79,6 +90,7 @@ The `gQueryElement` object has the following methods available:
 | Method          | Parameters                                                                  | Description                                             |
 | --------------- | --------------------------------------------------------------------------- | ------------------------------------------------------- |
 | `on()`          | event: string<br>query: EventCallback \| string<br>callback?: EventCallback | Add an event handler to element                         |
+| `trigger()`     | event: string                                                               | Trigger an event on element                             |
 | `find()`        | query: string                                                               | Find descendant elements of element(matching the query) |
 | `addClass()`    | className: string                                                           | Add class to element                                    |
 | `removeClass()` | className: string                                                           | Remove class from element                               |
