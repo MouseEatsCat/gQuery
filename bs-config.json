@@ -1,0 +1,5 @@
+{
+  "port": 3123,
+  "files": ["./docs/assets/**/*.css", "./docs/assets/**/*.js", "./docs/*.html"],
+  "server": { "baseDir": "./docs/" }
+}

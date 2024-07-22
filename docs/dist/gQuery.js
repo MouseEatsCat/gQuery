@@ -18,6 +18,11 @@ var gQueryElement = /** @class */ (function () {
         addEventListener(this);
         return this;
     };
+    gQueryElement.prototype.trigger = function (event) {
+        var eventObj = new CustomEvent(event);
+        this.element.dispatchEvent(eventObj);
+        return this;
+    };
     gQueryElement.prototype.find = function (query) {
         var allItems = [];
         allItems.push.apply(allItems, gQuery(query, this.element).items);
@@ -131,6 +136,13 @@ var gQueryElementList = /** @class */ (function () {
         });
         return this;
     };
+    gQueryElementList.prototype.trigger = function (event) {
+        var eventObj = new CustomEvent(event);
+        this.items.forEach(function (item) {
+            item.element.dispatchEvent(eventObj);
+        });
+        return this;
+    };
     /**
      * Iterate through all elements
      */
@@ -212,7 +224,10 @@ function gQuery(query, context) {
     // Use document as context by default
     var root = document;
     if (context) {
-        if (context instanceof HTMLElement) {
+        if (context instanceof gQueryElement) {
+            root = context.element;
+        }
+        else if (context instanceof HTMLElement) {
             root = context;
         }
         else if (typeof context === 'string') {

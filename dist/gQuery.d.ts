@@ -4,6 +4,7 @@ declare class gQueryElement {
     element: HTMLElement;
     constructor(element: HTMLElement);
     on(event: string, query: EventCallback | string, callback?: EventCallback): this;
+    trigger(event: string): this;
     find(query: string): gQueryElementList;
     data(dataAttr: string, value?: any): string;
     addClass(className: string): void;
@@ -23,6 +24,7 @@ declare class gQueryElementList {
      * Add an event handler to all elements
      */
     on(event: string, query: EventCallback | string, callback?: EventCallback): this;
+    trigger(event: string): this;
     /**
      * Iterate through all elements
      */

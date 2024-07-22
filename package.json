@@ -7,6 +7,7 @@
   "types": "./dist/gQuery",
   "unpkg": "./dist/gQuery.min.js",
   "scripts": {
+    "start": "lite-server",
     "build": "tsc && npm run minify && npm run demo",
     "minify": "terser dist/gQuery.js -o dist/gQuery.min.js -c -m --keep-classnames --keep-fnames --source-map \"url='dist/gQuery.min.js.map', includeSources\"",
     "demo": "rm -rf ./docs/dist && cp -R ./dist ./docs/dist",
@@ -18,7 +19,9 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "20.0.0",
     "husky": "^9.0.11",
+    "lite-server": "^2.6.1",
     "terser": "^5.31.0",
     "typescript": "^5.4.5"
   }
