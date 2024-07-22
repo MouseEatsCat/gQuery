@@ -260,7 +260,9 @@ function gQuery(
 	let root: ParentNode = document;
 
 	if (context) {
-		if (context instanceof HTMLElement) {
+		if (context instanceof gQueryElement) {
+			root = context.element;
+		} else if (context instanceof HTMLElement) {
 			root = context;
 		} else if (typeof context === 'string') {
 			root = document.querySelector(context);
